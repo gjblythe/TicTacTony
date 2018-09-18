@@ -56,12 +56,19 @@ var playerTwoSquares = {
 
 //fires when user clicks p1 p2
 //needs a button
-$("button").click(function(){
+function playerSelect(){
+$(".One").click(function(){
   var random = chance.d10();
   playerOneTony = arrayOfTonys[random];
   console.log(playerOneTony);
 })
 
+$(".Two").click(function(){
+  var random = chance.d10();
+  playerTwoTony = arrayOfTonys[random];
+  console.log(playerTwoTony);
+})
+};
 
 
 
@@ -109,4 +116,5 @@ function game() {
 
 $(document).ready(function() {
   console.log("ready!");
+  playerSelect();
 });
