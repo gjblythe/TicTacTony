@@ -7,7 +7,6 @@ var playerTwoLoses = 0;
 var tie = 0;
 var progress = 9;
 
-
 var arrayOfTonys = [
   "Tony Soprano",
   "Tony The Tiger",
@@ -52,25 +51,29 @@ var playerTwoSquares = {
   bRight: 0
 };
 
-
-
 //fires when user clicks p1 p2
 //needs a button
 
 //change to random on function
-function tonyRandom(){
-  i = chance.integer({min: 0, max: 9});
-  j = chance.integer({min: 0, i, max: 9});
-playerOneTony = arrayOfTonys[i];
-playerTwoTony = arrayOfTonys[j];
-console.log(playerOneTony, playerTwoTony);
-};
+function tonyRandom() {
+  i = chance.integer({ min: 0, max: 9 });
+  j = chance.integer({ min: 0, i, max: 9 });
+  playerOneTony = arrayOfTonys[i];
+  playerTwoTony = arrayOfTonys[j];
+  console.log(playerOneTony, playerTwoTony);
+}
 
+//which player starts
+function whoStarts() {
+  var coinFlip = chance.coin();
+  if (coinFlip === "heads") {
+    //user
+  } else {
+    //user2
+  }
+}
 
-
-$('.board').click(function(){
-    
-})
+$(".board").click(function() {});
 
 // psydocode
 function game() {
