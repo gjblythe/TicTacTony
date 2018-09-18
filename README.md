@@ -13,4 +13,5 @@ How to check your branch
 
 //git branch
 
+When Choosing p1 or p2 a Tony is assigned
 
