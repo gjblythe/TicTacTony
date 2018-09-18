@@ -23,8 +23,8 @@ var arrayOfTonys = [
 
 //use chance to grab an index
 
-playerOneTony = [];
-playerTwoTony = [];
+playerOneTony = "";
+playerTwoTony = "";
 
 var gameOver = false;
 
@@ -56,18 +56,14 @@ var playerTwoSquares = {
 
 //fires when user clicks p1 p2
 //needs a button
-function playerSelect(){
-$(".One").click(function(){
-  var random = chance.d10();
-  playerOneTony = arrayOfTonys[random];
-  console.log(playerOneTony);
-})
 
-$(".Two").click(function(){
-  var random = chance.d10();
-  playerTwoTony = arrayOfTonys[random];
-  console.log(playerTwoTony);
-})
+//change to random on function
+function tonyRandom(){
+  i = chance.integer({min: 0, max: 9});
+  j = chance.integer({min: 0, i, max: 9});
+playerOneTony = arrayOfTonys[i];
+playerTwoTony = arrayOfTonys[j];
+console.log(playerOneTony, playerTwoTony);
 };
 
 
@@ -116,5 +112,5 @@ function game() {
 
 $(document).ready(function() {
   console.log("ready!");
-  playerSelect();
+  tonyRandom();
 });
