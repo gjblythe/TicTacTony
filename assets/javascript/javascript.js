@@ -7,18 +7,24 @@ var playerTwoLoses = 0;
 var tie = 0;
 var progress = 9;
 
+
 var arrayOfTonys = [
-"Tony Soprano",
-"Tony The Tiger",
-"Tony Montana",
-"Tony Hawk",
-"Iron Man",
-"Tony Danza",
-"Tony Bennett",
-"Tony Jaa",
-"Anthony Hopkins",
-"Fat Tony"
+  "Tony Soprano",
+  "Tony The Tiger",
+  "Tony Montana",
+  "Tony Hawk",
+  "Iron Man",
+  "Tony Danza",
+  "Tony Bennett",
+  "Tony Jaa",
+  "Anthony Hopkins",
+  "Fat Tony"
 ];
+
+//use chance to grab an index
+
+playerOneTony = [];
+playerTwoTony = [];
 
 var gameOver = false;
 
@@ -45,6 +51,19 @@ var playerTwoSquares = {
   bCenter: 0,
   bRight: 0
 };
+
+
+
+//fires when user clicks p1 p2
+//needs a button
+$("button").click(function(){
+  var random = chance.d10();
+  playerOneTony = arrayOfTonys[random];
+  console.log(playerOneTony);
+})
+
+
+
 
 $('.board').click(function(){
     
