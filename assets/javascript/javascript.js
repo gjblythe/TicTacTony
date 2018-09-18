@@ -5,7 +5,20 @@ var playerTwoWins = 0;
 var playerOneLoses = 0;
 var playerTwoLoses = 0;
 var tie = 0;
-progress = 9;
+var progress = 9;
+
+var arrayOfTonys = [
+"Tony Soprano",
+"Tony The Tiger",
+"Tony Montana",
+"Tony Hawk",
+"Iron Man",
+"Tony Danza",
+"Tony Bennett",
+"Tony Jaa",
+"Anthony Hopkins",
+"Fat Tony"
+];
 
 var gameOver = false;
 
