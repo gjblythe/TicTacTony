@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TicTacTony</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TicTacTony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+
 
 </head>
+
 <body>
 
-        <h1>Tic Tac Tony</h1>
-        <div id="container">
-          <table id="board" class="hidden">
-            <tr class="row">
-              <td id="c00"></td>
-              <td id="c01"></td>
-              <td id="c02"></td>
-            </tr>
-            <tr class="row">
-              <td id="c10"></td>
-              <td id="c11"></td>
-              <td id="c12"></td>
-            </tr>
-            <tr class="row">
-              <td id="c20"></td>
-              <td id="c21"></td>
-              <td id="c22"></td>
-            </tr>
-          </table>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <div id="final-screen" class="hidden">
-            <div id="winner"></div>
-            <br>
-            <a href="#" id="new-game">Play Again</a>
-          </div>
-          <div id="choice">
-            <a href="#" id="x">X</a> or <a href="#" id="o">O</a> ?
-          </div>
-        </div>
+  <h1>Tic Tac Tony</h1>
+  <div id="container">
+    <table id="board" class="hidden">
+      <tr class="row">
+        <td id="c00"></td>
+        <td id="c01"></td>
+        <td id="c02"></td>
+      </tr>
+      <tr class="row">
+        <td id="c10"></td>
+        <td id="c11"></td>
+        <td id="c12"></td>
+      </tr>
+      <tr class="row">
+        <td id="c20"></td>
+        <td id="c21"></td>
+        <td id="c22"></td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="final-screen" class="hidden">
+      <div id="winner"></div>
+      <br>
+      <a href="#" id="new-game">Play Again</a>
+    </div>
+    <div id="choice">
+      <a href="#" class="selectPlayer"id="x">X</a> or <a href="#" class="selectPlayer" id="o">O</a> ?
+    </div>
+  </div>
 
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.16/chance.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.16/chance.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
 <script src="assets/javascript/javascript.js"></script>
-
 </html>
