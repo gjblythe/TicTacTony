@@ -1,0 +1,60 @@
+/*toggle buttons for tic tac toe markers*/
+
+body {
+  background-image: url(/Team-3-Project-1/assets/images/tonys.jpg);
+
+}
+
+h1 {
+  margin-top: 2px;
+  color: gold;
+  font-size: 100px;
+  text-align: center; 
+  font-family: 'Monoton', cursive;
+}
+
+
+#container {
+  position: relative;
+}
+
+#board {
+  background-image: url(/Team-3-Project-1/assets/images/gameboard.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 750px;
+  height: 500px;
+  left: 380px;
+  top: 5px;
+  border: 5px dotted white;
+}
+
+.row {
+  border: 3px solid red;
+  color: yellow;
+}
+
+#final-screen {
+  border: 3px solid yellow;
+  color: yellow;
+  position: relative;
+}
+
+#winner {
+  border: 3px solid red;
+  color: yellow;
+}
+
+#new-game {
+  border: 3px solid red;
+  color: yellow;
+  
+
+}
+
+#choice {
+  border: 3px solid red;
+  color: yellow;
+}
+
