@@ -20,6 +20,14 @@ var playerTwoLoses = 0;
 var tie = 0;
 var progress = 9;
 
+//game firebase start place a place a player into the db
+function recordGame(){
+gameDb.ref().push({
+  playerOne: playerOneTony,
+  playerTwo: playerTwoTony
+});
+}
+
 var arrayOfTonys = [
   "Tony Soprano",
   "Tony The Tiger",
@@ -62,8 +70,10 @@ var playerTwoSquares = {
   bRight: 0
 };
 
-console.log(playerOneSquares);
 
+function random(){
+  chance.integer({min: 1, max: 9});
+};
 //fires when user clicks p1 p2
 //needs a button
 
@@ -74,14 +84,18 @@ function tonyRandom() {
   playerOneTony = arrayOfTonys[i];
   playerTwoTony = arrayOfTonys[j];
   console.log(playerOneTony, playerTwoTony);
+  
+
 }
 
 //computer choice
 function randomComputer (){
-  var compChoice = [1,2,3,4,5,6,7,8,9];
-  var j = chance.interger({min:0 , max: 9});
+ if (compChoice === selected){
 
-}
+ }
+
+ }
+
 //which player starts
 function whoStarts() {
   var coinFlip = chance.coin();
