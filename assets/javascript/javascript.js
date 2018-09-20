@@ -1,3 +1,16 @@
+var config = {
+  apiKey: "AIzaSyCflOEyUStDPWhuIQtJrdOSzIhSBAeserE",
+  authDomain: "tictactony-a6298.firebaseapp.com",
+  databaseURL: "https://tictactony-a6298.firebaseio.com",
+  projectId: "tictactony-a6298",
+  storageBucket: "tictactony-a6298.appspot.com",
+  messagingSenderId: "337189598233"
+};
+firebase.initializeApp(config);
+
+gameDb = firebase.database();
+
+
 var playerOne = "X";
 var playerTwo = "O";
 var playerOneWins = 0;
