@@ -1,7 +1,7 @@
 /*toggle buttons for tic tac toe markers*/
 
 body {
-  background-image: url(/Team-3-Project-1/assets/images/tonys.jpg);
+  background-image: url(../../assets/images/tonys.jpg);
 
 }
 
@@ -19,7 +19,7 @@ h1 {
 }
 
 #board {
-  background-image: url(/Team-3-Project-1/assets/images/gameboard.jpg);
+  background-image: url(../../assets/images/gameboard.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
