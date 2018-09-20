@@ -20,8 +20,6 @@ var arrayOfTonys = [
   "Fat Tony"
 ];
 
-//use chance to grab an index
-
 playerOneTony = "";
 playerTwoTony = "";
 
@@ -51,6 +49,8 @@ var playerTwoSquares = {
   bRight: 0
 };
 
+console.log(playerOneSquares);
+
 //fires when user clicks p1 p2
 //needs a button
 
@@ -63,9 +63,16 @@ function tonyRandom() {
   console.log(playerOneTony, playerTwoTony);
 }
 
+//computer choice
+function randomComputer (){
+  var compChoice = [1,2,3,4,5,6,7,8,9];
+  var j = chance.interger({min:0 , max: 9});
+
+}
 //which player starts
 function whoStarts() {
   var coinFlip = chance.coin();
+  console.log(coinFlip)
   if (coinFlip === "heads") {
     //user
   } else {
@@ -76,6 +83,7 @@ function whoStarts() {
 $(".board").click(function() {});
 
 // psydocode
+progress--;
 function game() {
   if (
     playerOneSquares === (tLeft + tCenter + tRight === 3) ||
@@ -116,4 +124,5 @@ function game() {
 $(document).ready(function() {
   console.log("ready!");
   tonyRandom();
+  whoStarts();
 });
