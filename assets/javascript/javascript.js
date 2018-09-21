@@ -1,3 +1,16 @@
+var config = {
+  apiKey: "AIzaSyCflOEyUStDPWhuIQtJrdOSzIhSBAeserE",
+  authDomain: "tictactony-a6298.firebaseapp.com",
+  databaseURL: "https://tictactony-a6298.firebaseio.com",
+  projectId: "tictactony-a6298",
+  storageBucket: "tictactony-a6298.appspot.com",
+  messagingSenderId: "337189598233"
+};
+firebase.initializeApp(config);
+
+gameDb = firebase.database();
+
+
 var playerOne = "X";
 var playerTwo = "O";
 var playerOneWins = 0;
@@ -6,6 +19,14 @@ var playerOneLoses = 0;
 var playerTwoLoses = 0;
 var tie = 0;
 var progress = 9;
+
+//game firebase start place a place a player into the db
+function recordGame(){
+gameDb.ref().push({
+  playerOne: playerOneTony,
+  playerTwo: playerTwoTony
+});
+}
 
 var arrayOfTonys = [
   "Tony Soprano",
@@ -25,6 +46,7 @@ var arrayOfTonys = [
 //needs a button
 
 //change to random on function
+
 
 playerOneTony = "";
 playerTwoTony = "";
@@ -55,6 +77,10 @@ var playerTwoSquares = {
   bRight: 0
 };
 
+
+function random(){
+  chance.integer({min: 1, max: 9});
+};
 //fires when user clicks p1 p2
 //needs a button
 
@@ -65,11 +91,22 @@ function tonyRandom() {
   playerOneTony = arrayOfTonys[i];
   playerTwoTony = arrayOfTonys[j];
   console.log(playerOneTony, playerTwoTony);
+  
+
 }
+
+//computer choice
+function randomComputer (){
+ if (compChoice === selected){
+
+ }
+
+ }
 
 //which player starts
 function whoStarts() {
   var coinFlip = chance.coin();
+  console.log(coinFlip)
   if (coinFlip === "heads") {
     //user
   } else {
@@ -166,6 +203,7 @@ $(document).ready(function () {
   });
 });
 // psydocode
+progress--;
 function game() {
   if (
     playerOneSquares === (tLeft + tCenter + tRight === 3) ||
@@ -206,8 +244,12 @@ function game() {
 $(document).ready(function () {
   console.log("ready!");
   tonyRandom();
+
   playerOneSelect();
   console.log(playerOneSelect);
   playerTwoSelect();
   console.log(playerTwoSelect);
+
+  whoStarts();
+
 });

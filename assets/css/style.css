@@ -1,6 +1,7 @@
 /*toggle buttons for tic tac toe markers*/
 /*add sounds for click buttons*/
 
+
 /* Fonts 
 font-family: 'Monoton', cursive;
 font-family: 'Petit Formal Script', cursive;
@@ -10,6 +11,10 @@ font-family: 'Monofett', cursive;
 font-family: 'Vollkorn SC', serif;
 font-family: 'Ewert', cursive;
 font-family: 'Diplomata SC', cursive; */
+
+body {
+  background-image: url(../../assets/images/tonys.jpg);
+
 
 
 body { 
@@ -36,7 +41,11 @@ h1 {
 }
 
 #board {
+
   background-image: url(../../assets/images/tonys.jpg);
+
+  background-image: url(../../assets/images/gameboard.jpg);
+
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
