@@ -1,9 +1,31 @@
 /*toggle buttons for tic tac toe markers*/
+/*add sounds for click buttons*/
+
+
+/* Fonts 
+font-family: 'Monoton', cursive;
+font-family: 'Petit Formal Script', cursive;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Rubik Mono One', sans-serif;
+font-family: 'Monofett', cursive;
+font-family: 'Vollkorn SC', serif;
+font-family: 'Ewert', cursive;
+font-family: 'Diplomata SC', cursive; */
 
 body {
   background-image: url(../../assets/images/tonys.jpg);
 
+
+
+body { 
+  background-image: url(../../assets/images/curtains.jpeg);
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: #999;
 }
+
 
 h1 {
   margin-top: 2px;
@@ -19,42 +41,126 @@ h1 {
 }
 
 #board {
+
+  background-image: url(../../assets/images/tonys.jpg);
+
   background-image: url(../../assets/images/gameboard.jpg);
+
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
-  width: 750px;
+  width: 800px;
   height: 500px;
   left: 380px;
   top: 5px;
-  border: 5px dotted white;
+  border: 10px solid palegoldenrod;
 }
 
 .row {
-  border: 3px solid red;
-  color: yellow;
+  height: 175px;
 }
 
 #final-screen {
-  border: 3px solid yellow;
-  color: yellow;
-  position: relative;
+  border: 3px solid white;
+  width: auto;
+  height: auto;
 }
 
-#winner {
-  border: 3px solid red;
-  color: yellow;
-}
+/*#winner {
+  
+}*/
 
 #new-game {
-  border: 3px solid red;
-  color: yellow;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: white;
+}
   
 
-}
 
 #choice {
-  border: 3px solid red;
-  color: yellow;
+  border: 3px solid white;
+  color: white;
+  margin: auto;
+
 }
 
+.btn {
+  margin-top: 35px;
+  width: 100px;
+  height: 100px;
+  background-color: palegoldenrod;
+  border: 7px solid white;
+}
+
+.button-group {
+  margin-left: 200px;
+}
+
+/* Fonts 
+font-family: 'Monoton', cursive;
+font-family: 'Petit Formal Script', cursive;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Rubik Mono One', sans-serif;
+font-family: 'Monofett', cursive;
+font-family: 'Vollkorn SC', serif;
+font-family: 'Ewert', cursive;
+font-family: 'Diplomata SC', cursive; */
+
+#x {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: white;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+#o {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: white;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+/*#group1 {
+  margin-left: px;
+}*/
+
+/*@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 50px; 
+  }
+
+  #container {
+    position: relative;
+  }
+  
+  #board {
+    background-image: url(/Team-3-Project-1/assets/images/gameboard.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 3px;
+    top: 1px;
+    border: 5px dotted white;
+  }
+}
+
+@media screen and (max-width: 375px) {
+
+}*/
