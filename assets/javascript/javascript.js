@@ -140,16 +140,16 @@ function whoStarts() {
 
 $(document).ready(function () {
   var arrayOfTonys = [
-    "Tony Soprano",
-    "Tony The Tiger",
-    "Tony Montana",
-    "Tony Hawk",
-    "Iron Man",
-    "Tony Danza",
-    "Tony Bennett",
-    "Tony Jaa",
-    "Anthony Hopkins",
-    "Fat Tony"
+    "Tony+Soprano",
+    "Tony+The+Tiger",
+    "Tony+Montana",
+    "Tony+Hawk",
+    "Iron+Man",
+    "Tony+Danza",
+    "Tony+Bennett",
+    "Tony+Jaa",
+    "Anthony+Hopkins",
+    "Fat+Tony"
   ];
   //change to random on function
   function tonyRandom() {
@@ -162,6 +162,7 @@ $(document).ready(function () {
 
   $(document).on('click', 'a', function () {
     //value of playerOneTony on button
+    tonyRandom();
     var playerOneTony = $(this).html();
     console.log(playerOneTony);
     //API with key, limit of 10, and rating of G.
@@ -177,15 +178,15 @@ $(document).ready(function () {
       //jQuery to empty div.
       $('.btn').empty();
       //For loop for images retrieved
-      for (var j = 0; j < results.length; j++) {
-        var imageView = results[j].images.fixed_height.url;
-        var still = results[j].images.fixed_height_still.url;
-        console.log(imageView);
-        var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
-        gifImage.attr('data-state', 'still');
-        $('.btn').append(gifImage);
-        gifImage.on('click', playGif);
-      }
+      // for (var j = 0; j < results.length; j++) {
+      //   var imageView = results[j].images.fixed_height.url;
+      //   var still = results[j].images.fixed_height_still.url;
+      //   console.log(imageView);
+      //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
+      //   gifImage.attr('data-state', 'still');
+      //   $('.btn').append(gifImage);
+      //   gifImage.on('click', playGif);
+      // }
     });
     //Function for still and animate .gis retrieved.
     function playGif() {
