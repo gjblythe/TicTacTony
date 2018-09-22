@@ -28,18 +28,6 @@ gameDb.ref().push({
 });
 }
 
-var arrayOfTonys = [
-  "Tony Soprano",
-  "Tony The Tiger",
-  "Tony Montana",
-  "Tony Hawk",
-  "Iron Man",
-  "Tony Danza",
-  "Tony Bennett",
-  "Tony Jaa",
-  "Anthony Hopkins",
-  "Fat Tony"
-];
 
 //use chance to grab an index
 
@@ -81,19 +69,7 @@ var playerTwoSquares = {
 function random(){
   chance.integer({min: 1, max: 9});
 };
-//fires when user clicks p1 p2
-//needs a button
 
-//change to random on function
-function tonyRandom() {
-  i = chance.integer({ min: 0, max: 9 });
-  j = chance.integer({ min: 0, i, max: 9 });
-  playerOneTony = arrayOfTonys[i];
-  playerTwoTony = arrayOfTonys[j];
-  console.log(playerOneTony, playerTwoTony);
-  
-
-}
 
 //computer choice
 function randomComputer (){
@@ -139,18 +115,18 @@ function whoStarts() {
 //}
 
 $(document).ready(function () {
-  var arrayOfTonys = [
-    "Tony+Soprano",
-    "Tony+The+Tiger",
-    "Tony+Montana",
-    "Tony+Hawk",
-    "Iron+Man",
-    "Tony+Danza",
-    "Tony+Bennett",
-    "Tony+Jaa",
-    "Anthony+Hopkins",
-    "Fat+Tony"
-  ];
+  // var arrayOfTonys = [
+  //   "Tony+Soprano",
+  //   "Tony+The+Tiger",
+  //   "Tony+Montana",
+  //   "Tony+Hawk",
+  //   "Iron+Man",
+  //   "Tony+Danza",
+  //   "Tony+Bennett",
+  //   "Tony+Jaa",
+  //   "Anthony+Hopkins",
+  //   "Fat+Tony"
+  // ];
   //change to random on function
   function tonyRandom() {
     i = chance.integer({ min: 0, max: 9 });
@@ -160,48 +136,21 @@ $(document).ready(function () {
     console.log(playerOneTony, playerTwoTony);
   };
 
-  $(document).on('click', 'a', function () {
-    //value of playerOneTony on button
-    tonyRandom();
-    var playerOneTony = $(this).html();
-    console.log(playerOneTony);
-    //API with key, limit of 10, and rating of G.
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + playerOneTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
-    console.log(queryURL);
-    // AJAX Function to API
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function (response) {
-      var results = response.data;
-      console.log(results);
-      //jQuery to empty div.
-      $('.btn').empty();
-      //For loop for images retrieved
-      // for (var j = 0; j < results.length; j++) {
-      //   var imageView = results[j].images.fixed_height.url;
-      //   var still = results[j].images.fixed_height_still.url;
-      //   console.log(imageView);
-      //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
-      //   gifImage.attr('data-state', 'still');
-      //   $('.btn').append(gifImage);
-      //   gifImage.on('click', playGif);
-      // }
-    });
-    //Function for still and animate .gis retrieved.
-    function playGif() {
-      var state = $(this).attr('data-state');
-      console.log(state);
-      if (state == 'still') {
-        $(this).attr('src', $(this).data('animate'));
-        $(this).attr('data-state', 'animate');
-      }
-      else {
-        $(this).attr('src', $(this).data('still'));
-        $(this).attr('data-state', 'still');
-      }
-    }
-  });
+ 
+  //   //Function for still and animate .gis retrieved.
+  //   function playGif() {
+  //     var state = $(this).attr('data-state');
+  //     console.log(state);
+  //     if (state == 'still') {
+  //       $(this).attr('src', $(this).data('animate'));
+  //       $(this).attr('data-state', 'animate');
+  //     }
+  //     else {
+  //       $(this).attr('src', $(this).data('still'));
+  //       $(this).attr('data-state', 'still');
+  //     }
+  //   }
+  // });
 });
 // psydocode
 progress--;
@@ -242,15 +191,80 @@ function game() {
   }
 }
 
-$(document).ready(function () {
-  console.log("ready!");
-  tonyRandom();
+var arrayOfTonys = [
+  "Tony Soprano",
+  "Tony The Tiger",
+  "Tony Montana",
+  "Tony Hawk",
+  "Iron Man",
+  "Tony Danza",
+  "Tony Bennett",
+  "Tony Jaa",
+  "Anthony Hopkins",
+  "Fat Tony"
+];
 
-  playerOneSelect();
-  console.log(playerOneSelect);
-  playerTwoSelect();
-  console.log(playerTwoSelect);
+//change to random on function
+function tonyRandom() {
+  i = chance.integer({ min: 0, max: 9 });
+  j = chance.integer({ min: 0, i, max: 9 });
+  playerOneTony = arrayOfTonys[i];
+  playerTwoTony = arrayOfTonys[j];
 
-  whoStarts();
 
-});
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + playerOneTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+  var queryURL1 = "https://api.giphy.com/v1/gifs/search?q=" + playerTwoTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+    console.log("queryURL " + response);
+    // var results = response.data;
+    var images = $(".images");
+    for (var i = 0; i < response.data.length; i++) {
+
+      var img = $('<img>');
+      console.log(response.data[i]);
+      // img.attr('src', response.data[i].images.preview_gif.url);
+      var imageView = response.data[i].images.fixed_height.url;
+      console.log("image view " + imageView);
+      var still = response.data[i].images.fixed_height_still.url;
+      console.log("STILL " + still);
+      images.append(img);
+    }
+
+  });
+
+  $.ajax({
+    url: queryURL1,
+    method: "GET"
+  }).then(function (response) {
+    console.log("queryURL " + response);
+    // var results = response.data;
+    var images = $(".images");
+    for (var i = 0; i < response.data.length; i++) {
+
+      var img = $('<img>');
+      console.log(response.data[i]);
+      // img.attr('src', response.data[i].images.preview_gif.url);
+      var imageView = response.data[i].images.fixed_height.url;
+      console.log("image view " + imageView);
+      var still = response.data[i].images.fixed_height_still.url;
+      console.log("STILL " + still);
+      images.append(img);
+    }
+  }); 
+} tonyRandom();
+// $(document).ready(function () {
+//   console.log("ready!");
+//   tonyRandom();
+
+//   playerOneSelect();
+//   console.log(playerOneSelect);
+//   playerTwoSelect();
+//   console.log(playerTwoSelect);
+
+//   whoStarts();
+
+// });
