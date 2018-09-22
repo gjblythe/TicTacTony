@@ -134,6 +134,10 @@ font-family: 'Diplomata SC', cursive; */
   text-align: center;
 }
 
+#playerOne, #playerTwo {
+  color: gold;
+  font-family: 'Rubik Mono One', sans-serif;
+}
 /*#group1 {
   margin-left: px;
 }*/
