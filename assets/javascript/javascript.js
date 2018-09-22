@@ -304,6 +304,4 @@ $(document).ready(function() {
   $('#players').hide();
   $("#board").hide();
   $("#new-game").hide();
-  apiCallPlayerOne();
-  apiCallPlayerTwo();
 });
