@@ -26,18 +26,6 @@ var win = [
   [1, 5, 9],
   [3, 5, 7]
 ];
-var tie = 0;
-var progress = 9;
-playerOne = "";
-playerTwo = "";
-
-//game firebase start place a place a player into the db
-function recordGame() {
-  gameDb.ref().push({
-    playerOne: playerOneTony,
-    playerTwo: playerTwoTony
-  });
-}
 
 var arrayOfTonys = [
   "Tony Soprano",
@@ -52,21 +40,36 @@ var arrayOfTonys = [
   "Fat Tony"
 ];
 
+var tie = 0;
+var progress = 9;
+playerOne = "";
+playerTwo = "";
+
+//game firebase start place a place a player into the db
+function recordGame() {
+  gameDb.ref().push({
+    playerOne: playerOneTony,
+    playerTwo: playerTwoTony
+  });
+}
+
+
 playerOneTony = "";
 playerTwoTony = "";
 
 var gameOver = false;
 
+
 function random() {
   chance.integer({ min: 1, max: 9 });
 }
 
-function tonyRandom() {
-  i = chance.integer({ min: 0, max: 9 });
-  j = chance.integer({ min: 0, i, max: 9 });
-  playerOneTony = arrayOfTonys[i];
-  playerTwoTony = arrayOfTonys[j];
-}
+// function tonyRandom() {
+//   i = chance.integer({ min: 0, max: 9 });
+//   j = chance.integer({ min: 0, i, max: 9 });
+//   playerOneTony = arrayOfTonys[i];
+//   playerTwoTony = arrayOfTonys[j];
+// }
 function userSelect() {
   $("#x").click(function() {
     playerOne = playerOneTony;
@@ -76,6 +79,8 @@ function userSelect() {
     playerScore();
     console.log("p1"+playerOne, "p2"+playerTwo);
   });
+
+
 
   $("#o").click(function() {
     playerOne = playerTwoTony;
@@ -114,165 +119,182 @@ function whoStarts() {
   }
 }
 
-//function playerOneSelect(event) {
-//$("#choice").click(function (event) {
-//tonyRandom();
-//if (playerOne === "X") {
-//$(this).append(playerOneTony)
-//}
-//if (playerOne === "O") {
-//$(this).append(playerOneTony)
-//}
-//});
-//}
+// function playerOneSelect(event) {
+// $("#choice").click(function (event) {
+// tonyRandom();
+// if (playerOne === "X") {
+// $(this).append(playerOneTony)
+// }
+// if (playerOne === "O") {
+// $(this).append(playerOneTony)
+// }
+// });
+// }
 
-//function playerTwoSelect(event) {
-//$("#choice").click(function (event) {
-//tonyRandom();
-//if (playerTwo === "X") {
-//$(this).append(playerTwoTony)
-//}
-//if (playerTwo === "O") {
-//$(this).append(playerTwoTony)
-//}
-//});
-//}
+// function playerTwoSelect(event) {
+// $("#choice").click(function (event) {
+// tonyRandom();
+// if (playerTwo === "X") {
+// $(this).append(playerTwoTony)
+// }
+// if (playerTwo === "O") {
+// $(this).append(playerTwoTony)
+// }
+// });
+// }
 
 
-function apiCallPlayerOne(){
-  $("button").on("click", "a", function() {
-    //value of playerOneTony on button
+
+// function apiCallPlayerOne(){
+//   $("button").on("click", "a", function() {
+//     //value of playerOneTony on button
    
-    tonyRandom();
+//     tonyRandom();
 
-    console.log(playerOne);
-    //API with key, limit of 10, and rating of G.
-    var queryURL =
-      "https://api.giphy.com/v1/gifs/search?q=" +
-      playerOne+
-      "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
-    console.log(queryURL);
-    // AJAX Function to API
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      var results = response.data;
-      console.log(results);
-      //jQuery to empty div.
-      $(".btn").empty();
-      //For loop for images retrieved
-      // for (var j = 0; j < results.length; j++) {
-      //   var imageView = results[j].images.fixed_height.url;
-      //   var still = results[j].images.fixed_height_still.url;
-      //   console.log(imageView);
-      //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
-      //   gifImage.attr('data-state', 'still');
-      //   $('.btn').append(gifImage);
-      //   gifImage.on('click', playGif);
-      // }
-    });
-    //Function for still and animate .gis retrieved.
-    function playGif() {
-      var state = $(this).attr("data-state");
-      console.log(state);
-      if (state == "still") {
-        $(this).attr("src", $(this).data("animate"));
-        $(this).attr("data-state", "animate");
-      } else {
-        $(this).attr("src", $(this).data("still"));
-        $(this).attr("data-state", "still");
-      }
-    }
-  });
-};
+//     console.log(playerOne);
+//     //API with key, limit of 10, and rating of G.
+//     var queryURL =
+//       "https://api.giphy.com/v1/gifs/search?q=" +
+//       playerOne+
+//       "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+//     console.log(queryURL);
+//     // AJAX Function to API
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).then(function(response) {
+//       var results = response.data;
+//       console.log(results);
+//       //jQuery to empty div.
+//       $(".btn").empty();
+//       //For loop for images retrieved
+//       // for (var j = 0; j < results.length; j++) {
+//       //   var imageView = results[j].images.fixed_height.url;
+//       //   var still = results[j].images.fixed_height_still.url;
+//       //   console.log(imageView);
+//       //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
+//       //   gifImage.attr('data-state', 'still');
+//       //   $('.btn').append(gifImage);
+//       //   gifImage.on('click', playGif);
+//       // }
+//     });
+//     //Function for still and animate .gis retrieved.
+//     function playGif() {
+//       var state = $(this).attr("data-state");
+//       console.log(state);
+//       if (state == "still") {
+//         $(this).attr("src", $(this).data("animate"));
+//         $(this).attr("data-state", "animate");
+//       } else {
+//         $(this).attr("src", $(this).data("still"));
+//         $(this).attr("data-state", "still");
+//       }
+//     }
+//   });
+// };
 
 
-//player two call
-function apiCallPlayerTwo(){
-$("button").on("click", "a", function() {
-  tonyRandom();
-  //value of playerOneTony on button
-  //API with key, limit of 10, and rating of G.
-  var queryURL =
-    "https://api.giphy.com/v1/gifs/search?q=" +
-    playerTwo+
-    "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
-  console.log(queryURL);
-  // AJAX Function to API
+// //player two call
+// function apiCallPlayerTwo(){
+// $("button").on("click", "a", function() {
+//   tonyRandom();
+//   //value of playerOneTony on button
+//   //API with key, limit of 10, and rating of G.
+//   var queryURL =
+//     "https://api.giphy.com/v1/gifs/search?q=" +
+//     playerTwo+
+//     "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+//   console.log(queryURL);
+//   // AJAX Function to API
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET"
+//   }).then(function(response) {
+//     var results = response.data;
+//     console.log(results);
+//     //jQuery to empty div.
+//     $(".btn").empty();
+//     //For loop for images retrieved
+//     // for (var j = 0; j < results.length; j++) {
+//     //   var imageView = results[j].images.fixed_height.url;
+//     //   var still = results[j].images.fixed_height_still.url;
+//     //   console.log(imageView);
+//     //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
+//     //   gifImage.attr('data-state', 'still');
+//     //   $('.btn').append(gifImage);
+//     //   gifImage.on('click', playGif);
+//     // }
+//   });
+//   //Function for still and animate .gis retrieved.
+//   function playGif() {
+//     var state = $(this).attr("data-state");
+//     console.log(state);
+//     if (state == "still") {
+//       $(this).attr("src", $(this).data("animate"));
+//       $(this).attr("data-state", "animate");
+//     } else {
+//       $(this).attr("src", $(this).data("still"));
+//       $(this).attr("data-state", "still");
+//     }
+//   }
+
+// });
+// };
+
+
+
+//change to random on function
+function tonyRandom() {
+  i = chance.integer({ min: 0, max: 9 });
+  j = chance.integer({ min: 0, i, max: 9 });
+  playerOneTony = arrayOfTonys[i];
+  playerTwoTony = arrayOfTonys[j];
+  
+  
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + playerOneTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+  var queryURL1 = "https://api.giphy.com/v1/gifs/search?q=" + playerTwoTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+  
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
-    var results = response.data;
-    console.log(results);
-    //jQuery to empty div.
-    $(".btn").empty();
-    //For loop for images retrieved
-    // for (var j = 0; j < results.length; j++) {
-    //   var imageView = results[j].images.fixed_height.url;
-    //   var still = results[j].images.fixed_height_still.url;
-    //   console.log(imageView);
-    //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
-    //   gifImage.attr('data-state', 'still');
-    //   $('.btn').append(gifImage);
-    //   gifImage.on('click', playGif);
-    // }
+  }).then(function (response) {
+    console.log("queryURL " + response);
+    // var results = response.data;
+    var images = $(".images");
+    for (var i = 0; i < response.data.length; i++) {
+      
+      var img = $('<img>');
+      console.log(response.data[i]);
+      // img.attr('src', response.data[i].images.preview_gif.url);
+      var imageView = response.data[i].images.fixed_height.url;
+      console.log("image view " + imageView);
+      var still = response.data[i].images.fixed_height_still.url;
+      console.log("STILL " + still);
+      images.append(img);
+    }
+    
   });
-  //Function for still and animate .gis retrieved.
-  function playGif() {
-    var state = $(this).attr("data-state");
-    console.log(state);
-    if (state == "still") {
-      $(this).attr("src", $(this).data("animate"));
-      $(this).attr("data-state", "animate");
-    } else {
-      $(this).attr("src", $(this).data("still"));
-      $(this).attr("data-state", "still");
+  
+  $.ajax({
+    url: queryURL1,
+    method: "GET"
+  }).then(function (response) {
+    console.log("queryURL " + response);
+    // var results = response.data;
+    var images = $(".images");
+    for (var i = 0; i < response.data.length; i++) {
+      
+      var img = $('<img>');
+      console.log(response.data[i]);
+      // img.attr('src', response.data[i].images.preview_gif.url);
+      var imageView = response.data[i].images.fixed_height.url;
+      console.log("image view " + imageView);
+      var still = response.data[i].images.fixed_height_still.url;
+      console.log("STILL " + still);
+      images.append(img);
     }
-  }
-});
-};
-
-
-// psydocode
-progress--;
-function game() {
-  if (
-    playerOneSquares === (tLeft + tCenter + tRight === 3) ||
-    left + center + right === 3 ||
-    bLeft + bCenter + bRight === 3 ||
-    tLeft + left + bLeft === 3 ||
-    tCenter + center + bCenter === 3 ||
-    tRight + right + bRight === 3 ||
-    tLeft + center + bRight === 3 ||
-    tRight + center + bLeft === 3
-  ) {
-    playerOneWins++;
-    playerTwoLoses++;
-    gameOver = true;
-  } else if (
-    playerTwoSquares === (tLeft + tCenter + tRight === 3) ||
-    left + center + right === 3 ||
-    bLeft + bCenter + bRight === 3 ||
-    tLeft + left + bLeft === 3 ||
-    tCenter + center + bCenter === 3 ||
-    tRight + right + bRight === 3 ||
-    tLeft + center + bRight === 3 ||
-    tRight + center + bLeft === 3
-  ) {
-    playerTwoWins++;
-    playerOneLoses++;
-    gameOver = true;
-  } else {
-    if (progress > 0) {
-      gameOver = false;
-    } else {
-      gameOver = true;
-      tie++;
-    }
-  }
-}
+  }); 
+} 
 
 $(document).ready(function() {
   console.log("ready!");
