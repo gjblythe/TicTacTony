@@ -137,7 +137,13 @@ h1 {
 
 .btn.button-default {
   
-}
+};
+
+#playerOne, #playerTwo {
+  color: gold;
+  font-family: 'Rubik Mono One', sans-serif;
+
+};
 /*#group1 {
   margin-left: px;
 }*/

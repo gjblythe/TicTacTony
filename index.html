@@ -19,9 +19,27 @@
 <body>
 
   <h1>Tic Tac Tony</h1>
+
   <!--<audio id="sound1" src="yoursound.mp3" preload="auto"></audio>
   <button onclick="document.getElementById('sound1').play();">Play
   it</button>-->
+
+  <div class="container" id="players">
+    <div class="row">
+        <div class="col-2" id="playerOne">
+          <h2>Player one</h2>
+          <p id="pOneWins">Wins:</p>
+          <p id="pOneLosses">Losses:</p>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-2" id="playerTwo">
+          <h2>Player two</h2>
+          <p id="pTwoWins">Wins:</p>
+          <p id="pTwoLosses">Losses:</p>
+        </div>
+    </div>
+  </div>
+
   <div id="container" class="col-lg-12">
     <table id="board" class="hidden">
       <div class="button-group">
@@ -29,21 +47,27 @@
           <td id="c00">
             <div class="text-center">
               <div class="col-4">
+
                 <audio id="sound1" src="/assets/sounds/blaster-firing.wav" preload="auto"></audio>
                 <button type="button" onclick="document.getElementById('sound1').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
               </div>
             </div>
           </td>
           <td id="c01">
             <div class="col-4">
+
               <audio id="sound2" src="/assets/sounds/WilhelmScream.wav" preload="auto"></audio>
               <button type="button" onclick="document.getElementById('sound2').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
             </div>
           </td>
           <td id="c02">
             <div class="col-4">
+
               <audio id="sound3" src="/assets/sounds/perfect-fart.mp3" preload="auto"></audio>
               <button type="button" onclick="document.getElementById('sound3').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
             </div>
           </td>
         </tr>
@@ -51,40 +75,52 @@
       <tr class="row">
         <td id="c10">
           <div class="col-4">
+
             <audio id="sound4" src="/assets/sounds/i-like-turtles.mp3" preload="auto"></audio>
             <button type="button" onclick="document.getElementById('sound4').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
           </div>
         </td>
         <td id="c11">
           <div class="col-4">
+
             <audio id="sound5" src="/assets/sounds/fatality.swf.mp3" preload="auto"></audio>
             <button type="button" onclick="document.getElementById('sound5').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
           </div>
         </td>
         <td id="c12">
           <div class="col-4">
+
             <audio id="sound6" src="/assets/sounds/metalgearsolid.swf.mp3" preload="auto"></audio>
             <button type="button" onclick="document.getElementById('sound6').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
           </div>
         </td>
       </tr>
       <tr class="row">
         <td id="c20">
           <div class="col-4">
+
             <audio id="sound7" src="/assets/sounds/combobreaker.mp3" preload="auto"></audio>
             <button type="button" onclick="document.getElementById('sound7').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
           </div>
         </td>
         <td id="c21">
           <div class="col-4">
+
             <audio id="sound8" src="/assets/sounds/mr-mackey-umkay.wav" preload="auto"></audio>
             <button type="button" onclick="document.getElementById('sound8').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
           </div>
         </td>
         <td id="c22">
           <div class="col-4">
+
             <audio id="sound9" src="/assets/sounds/nap-ddang.wav" preload="auto"></audio>
             <button type="button" onclick="document.getElementById('sound9').play();" class="btn btn-default btn-lg text-center" id="board-button" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+
           </div>
         </td>
       </tr>
@@ -113,6 +149,8 @@
   </div>
 
   </div>
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
