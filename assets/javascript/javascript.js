@@ -64,12 +64,7 @@ function random() {
   chance.integer({ min: 1, max: 9 });
 }
 
-// function tonyRandom() {
-//   i = chance.integer({ min: 0, max: 9 });
-//   j = chance.integer({ min: 0, i, max: 9 });
-//   playerOneTony = arrayOfTonys[i];
-//   playerTwoTony = arrayOfTonys[j];
-// }
+
 function userSelect() {
   $("#x").click(function() {
     playerOne = playerOneTony;
@@ -79,8 +74,6 @@ function userSelect() {
     playerScore();
     console.log("p1"+playerOne, "p2"+playerTwo);
   });
-
-
 
   $("#o").click(function() {
     playerOne = playerTwoTony;
@@ -119,130 +112,6 @@ function whoStarts() {
   }
 }
 
-// function playerOneSelect(event) {
-// $("#choice").click(function (event) {
-// tonyRandom();
-// if (playerOne === "X") {
-// $(this).append(playerOneTony)
-// }
-// if (playerOne === "O") {
-// $(this).append(playerOneTony)
-// }
-// });
-// }
-
-// function playerTwoSelect(event) {
-// $("#choice").click(function (event) {
-// tonyRandom();
-// if (playerTwo === "X") {
-// $(this).append(playerTwoTony)
-// }
-// if (playerTwo === "O") {
-// $(this).append(playerTwoTony)
-// }
-// });
-// }
-
-
-
-// function apiCallPlayerOne(){
-//   $("button").on("click", "a", function() {
-//     //value of playerOneTony on button
-   
-//     tonyRandom();
-
-//     console.log(playerOne);
-//     //API with key, limit of 10, and rating of G.
-//     var queryURL =
-//       "https://api.giphy.com/v1/gifs/search?q=" +
-//       playerOne+
-//       "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
-//     console.log(queryURL);
-//     // AJAX Function to API
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     }).then(function(response) {
-//       var results = response.data;
-//       console.log(results);
-//       //jQuery to empty div.
-//       $(".btn").empty();
-//       //For loop for images retrieved
-//       // for (var j = 0; j < results.length; j++) {
-//       //   var imageView = results[j].images.fixed_height.url;
-//       //   var still = results[j].images.fixed_height_still.url;
-//       //   console.log(imageView);
-//       //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
-//       //   gifImage.attr('data-state', 'still');
-//       //   $('.btn').append(gifImage);
-//       //   gifImage.on('click', playGif);
-//       // }
-//     });
-//     //Function for still and animate .gis retrieved.
-//     function playGif() {
-//       var state = $(this).attr("data-state");
-//       console.log(state);
-//       if (state == "still") {
-//         $(this).attr("src", $(this).data("animate"));
-//         $(this).attr("data-state", "animate");
-//       } else {
-//         $(this).attr("src", $(this).data("still"));
-//         $(this).attr("data-state", "still");
-//       }
-//     }
-//   });
-// };
-
-
-// //player two call
-// function apiCallPlayerTwo(){
-// $("button").on("click", "a", function() {
-//   tonyRandom();
-//   //value of playerOneTony on button
-//   //API with key, limit of 10, and rating of G.
-//   var queryURL =
-//     "https://api.giphy.com/v1/gifs/search?q=" +
-//     playerTwo+
-//     "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
-//   console.log(queryURL);
-//   // AJAX Function to API
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   }).then(function(response) {
-//     var results = response.data;
-//     console.log(results);
-//     //jQuery to empty div.
-//     $(".btn").empty();
-//     //For loop for images retrieved
-//     // for (var j = 0; j < results.length; j++) {
-//     //   var imageView = results[j].images.fixed_height.url;
-//     //   var still = results[j].images.fixed_height_still.url;
-//     //   console.log(imageView);
-//     //   var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
-//     //   gifImage.attr('data-state', 'still');
-//     //   $('.btn').append(gifImage);
-//     //   gifImage.on('click', playGif);
-//     // }
-//   });
-//   //Function for still and animate .gis retrieved.
-//   function playGif() {
-//     var state = $(this).attr("data-state");
-//     console.log(state);
-//     if (state == "still") {
-//       $(this).attr("src", $(this).data("animate"));
-//       $(this).attr("data-state", "animate");
-//     } else {
-//       $(this).attr("src", $(this).data("still"));
-//       $(this).attr("data-state", "still");
-//     }
-//   }
-
-// });
-// };
-
-
-
 //change to random on function
 function tonyRandom() {
   i = chance.integer({ min: 0, max: 9 });
@@ -271,8 +140,7 @@ function tonyRandom() {
       var still = response.data[i].images.fixed_height_still.url;
       console.log("STILL " + still);
       images.append(img);
-    }
-    
+    } 
   });
   
   $.ajax({
@@ -305,3 +173,4 @@ $(document).ready(function() {
   $("#board").hide();
   $("#new-game").hide();
 });
+
