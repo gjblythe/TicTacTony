@@ -12,10 +12,6 @@ font-family: 'Vollkorn SC', serif;
 font-family: 'Ewert', cursive;
 font-family: 'Diplomata SC', cursive; */
 
-
-
-
-
 body { 
   background-image: url(../../assets/images/curtains.jpeg);
   background-position: center center;
@@ -25,7 +21,6 @@ body {
   background-color: #999;
 }
 
-
 h1 {
   margin-top: 2px;
   color: gold;
@@ -34,17 +29,12 @@ h1 {
   font-family: 'Monoton', cursive;
 }
 
-
 #container {
   position: relative;
 }
 
 #board {
-
   background-image: url(/assets/images/tonys.jpg);
-
-  /*background-image: url(../../assets/images/gameboard.jpg);*/
-
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -61,7 +51,6 @@ h1 {
 }
 
 #final-screen {
-  border: 3px solid white;
   width: auto;
   height: auto;
 }
@@ -80,10 +69,8 @@ h1 {
 }
   
 #choice {
-  border: 3px solid white;
   color: white;
   margin: auto;
-
 }
 
 .btn {
@@ -135,9 +122,11 @@ h1 {
   text-align: center;
 }
 
-.btn.button-default {
-  
+#playerOne, #playerTwo {
+  color: gold;
+  font-family: 'Rubik Mono One', sans-serif;
 }
+
 /*#group1 {
   margin-left: px;
 }*/
