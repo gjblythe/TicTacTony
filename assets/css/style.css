@@ -1,7 +1,3 @@
-/*toggle buttons for tic tac toe markers*/
-/*add sounds for click buttons*/
-
-
 /* Fonts 
 font-family: 'Monoton', cursive;
 font-family: 'Petit Formal Script', cursive;
@@ -30,14 +26,13 @@ h1 {
 }
 
 #container {
-  position: relative;
+  margin-top: 50px;
 }
 
-#board {
+#game-board {
   background-image: url(/assets/images/tonys.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
   max-width: 100%;
   width: 800px;
   height: 500px;
@@ -74,7 +69,7 @@ h1 {
 }
 
 .btn {
-  margin-top: 35px;
+  margin-top: 27px;
   width: 100px;
   height: 100px;
   background-color: palegoldenrod;
@@ -84,6 +79,11 @@ h1 {
 #play-again-btn {
   width: auto;
   height: auto;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 5px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
 }
 
 .btn:hover {
@@ -125,6 +125,7 @@ h1 {
 #playerOne, #playerTwo {
   color: gold;
   font-family: 'Rubik Mono One', sans-serif;
+  margin-top: 38px;
 }
 
 /*#group1 {
