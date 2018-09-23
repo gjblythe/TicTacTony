@@ -29,8 +29,10 @@ h1 {
   margin-top: 50px;
 }
 
+
 #game-board {
-  background-image: url(/assets/images/tonys.jpg);
+  background-image: url(../../assets/images/tonys.jpg);
+
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100%;
@@ -122,11 +124,13 @@ h1 {
   text-align: center;
 }
 
+
 #playerOne, #playerTwo {
   color: gold;
   font-family: 'Rubik Mono One', sans-serif;
   margin-top: 38px;
 }
+
 
 /*#group1 {
   margin-left: px;

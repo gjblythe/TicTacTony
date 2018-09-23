@@ -17,6 +17,7 @@ var playerTwoWins = 0;
 var playerOneLoses = 0;
 var playerTwoLoses = 0;
 var win = [
+
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
@@ -42,14 +43,17 @@ var arrayOfTonys = [
 
 var tie = 0;
 var progress = 9;
-playerOne = "";
-playerTwo = "";
 
+var playerOne = "";
+var playerTwo = "";
+var turn = chance.integer({min:1, max:2})
+var pOnePick = [];
+var pTwoPick = [];
 //game firebase start place a place a player into the db
 function recordGame() {
   gameDb.ref().push({
-    playerOne: playerOneTony,
-    playerTwo: playerTwoTony
+    playerOne: pOnePick,
+    playerTwo: pTwoPick
   });
 }
 
@@ -64,23 +68,40 @@ function random() {
   chance.integer({ min: 1, max: 9 });
 }
 
-<<<<<<< HEAD
-function random(){
-  chance.integer({min: 1, max: 9});
+
+
+function userSelect() {
+  $("#x").click(function() {
+    playerOne = playerOneTony;
+    playerTwo = playerTwoTony;
+    $("#choice").hide();
+    $("#board").show();
+    playerScore();
+    console.log("p1"+playerOne, "p2"+playerTwo);
+  });
+  
+  $("#o").click(function() {
+    playerOne = playerTwoTony;
+    playerTwo = playerOneTony;
+    $("#choice").hide();
+    $("#board").show();
+    playerScore();
+    console.log("p1"+playerOne, "p2"+playerTwo);
+  });
 };
-//fires when user clicks p1 p2
 
-//needs a button
 
-//change to random on function
-function tonyRandom() {
-  i = chance.integer({ min: 0, max: 9 });
-  j = chance.integer({ min: 0, i, max: 9 });
-  playerOneTony = arrayOfTonys[i];
-  playerTwoTony = arrayOfTonys[j];
-  console.log(playerOneTony, playerTwoTony);
+function playerScore(){
+  $('#players').show()
 }
-=======
+function gameOver(){
+  $("#new-game").show();
+  $("#new-game").click(function(){
+    $("#new-game").hide();
+    $("#choice").show();
+  })
+}
+
 // function tonyRandom() {
 //   i = chance.integer({ min: 0, max: 9 });
 //   j = chance.integer({ min: 0, i, max: 9 });
@@ -108,7 +129,7 @@ function userSelect() {
     console.log("p1"+playerOne, "p2"+playerTwo);
   });
 };
->>>>>>> origin/master
+
 
 function playerScore(){
   $('#players').show()
@@ -372,3 +393,247 @@ $(document).ready(function () {
   $("#board").hide();
   $("#new-game").hide();
 });
+
+//which player starts
+// function whoStarts() {
+  //   var coinFlip = chance.coin();
+  //   console.log(coinFlip);
+  //   if (coinFlip === "heads") {
+    //     turn.push(1)
+    //     console.log("1",turn);
+    //   } else {
+      //     turn.push(2)
+      //     console.log("2",turn);
+      //   }
+      // }
+      
+      //change to random on function
+      function tonyRandom() {
+        i = chance.integer({ min: 0, max: 9 });
+        j = chance.integer({ min: 0, i, max: 9 });
+        playerOneTony = arrayOfTonys[i];
+        playerTwoTony = arrayOfTonys[j];
+        console.log("p1")
+        
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + playerOneTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+        var queryURL1 = "https://api.giphy.com/v1/gifs/search?q=" + playerTwoTony + "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+        
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function (response) {
+          console.log("queryURL " + response);
+          // var results = response.data;
+          var images = $(".images");
+          for (var i = 0; i < response.data.length; i++) {
+            
+            var img = $('<img>');
+            console.log(response.data[i]);
+            // img.attr('src', response.data[i].images.preview_gif.url);
+            var imageView = response.data[i].images.fixed_height.url;
+            console.log("image view " + imageView);
+            var still = response.data[i].images.fixed_height_still.url;
+            console.log("STILL " + still);
+            images.append(img);
+          } 
+        });
+        
+        $.ajax({
+          url: queryURL1,
+          method: "GET"
+        }).then(function (response) {
+          console.log("queryURL " + response);
+          // var results = response.data;
+          var images = $(".images");
+          for (var i = 0; i < response.data.length; i++) {
+            
+            var img = $('<img>');
+            console.log(response.data[i]);
+            // img.attr('src', response.data[i].images.preview_gif.url);
+            var imageView = response.data[i].images.fixed_height.url;
+            console.log("image view " + imageView);
+            var still = response.data[i].images.fixed_height_still.url;
+            console.log("STILL " + still);
+            images.append(img);
+          }
+        }); 
+      };
+      
+      // Winning combos
+      //function winnerCheck() {
+        //if(movesMade > 4) {
+          //var btn = $('#board-button');
+          //var moves = Array.prototype.slice.call($('#board-button'));
+          //var results = moves.map(function(square) { return square.innerHTML; }); {
+            //return square.innerHTML;
+            //};
+            
+            //let winningCombos = [
+              //[0, 1, 2],
+              //[3, 4, 5],
+              //[6, 7, 8],
+              //[0, 3, 6],
+              //[1, 4, 7],
+              //[2, 5, 8],
+              //[0, 4, 8],
+              //[2, 4, 6]
+              //];
+              
+              //return winningCombos.find(function(combo) {
+                //if (results[combo[0]] !== "" && results[combo[1]] !== "" && results[combo[2]] !== "" && results[combo[0]] === results[combo[1]] && results[combo[1]] === results[combo[2]]) {
+                  //return true;
+                  //} else {
+                    //return false;
+                    //}
+                    //});
+                    
+                    
+                    
+                    //game toggle
+                    $('#1').one('click', function(){
+                      console.log("this is the random" +turn, "p1 " + playerOne, "p2" + playerTwo);
+                      if (turn === 1){
+                        $('#1').append(playerOne);
+                        pOnePick.push(1);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#1').append(playerTwo);
+                        pTwoPick.push(1);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#2').one('click', function(){
+                      if (turn === 1){
+                        $('#2').append(playerOne);
+                        pOnePick.push(2);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#2').append(playerTwo);
+                        pTwoPick.push(2);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#3').one('click', function(){
+                      if (turn === 1){
+                        $('#3').append(playerOne);
+                        pOnePick.push(3);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#3').append(playerTwo);
+                        pTwoPick.push(3);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#4').one('click', function(){
+                      if (turn === 1){
+                        $('#4').append(playerOne);
+                        pOnePick.push(4);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#4').append(playerTwo);
+                        pTwoPick.push(4);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#5').one('click', function(){
+                      if (turn === 1){
+                        $('#5').append(playerOne);
+                        pOnePick.push(5);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#5').append(playerTwo);
+                        pTwoPick.push(5);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#6').one('click', function(){
+                      if (turn === 1){
+                        $('#6').append(playerOne);
+                        pOnePick.push(6);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#6').append(playerTwo);
+                        pTwoPick.push(6);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#7').one('click', function(){
+                      if (turn === 1){
+                        $('#7').append(playerOne);
+                        pOnePick.push(7);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#7').append(playerTwo);
+                        pTwoPick.push(7);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#8').one('click', function(){
+                      if (turn === 1){
+                        $('#8').append(playerOne);
+                        pOnePick.push(8);
+                        recordGame();
+                        turn = 2;
+                      } else {
+                        $('#8').append(playerTwo);
+                        pTwoPick.push(8);
+                        recordGame();
+                        turn = 1;
+                      }
+                    });
+                    
+                    $('#9').one('click', function(){
+                      if (turn === 1){
+                        $('#9').append(playerOne);
+                        pOnePick.push(9);
+                        recordGame();
+                        turn = 2;
+                        console.log("p1", pOnePick);
+                      } else {
+                        $('#9').append(playerTwo);
+                        pTwoPick.push(9);
+                        recordGame();
+                        turn = 1;
+                        console.log("p2", pTwoPick);
+                      }
+                    });
+                    
+                    
+                    function winCheck(){
+                      //check against the array
+                    };
+                    
+                    $(document).ready(function(){
+                      console.log("ready!");
+                      userSelect();
+                      tonyRandom();
+                      whoStarts();
+                      console.log("start" + turn);
+                      $('#players').hide();
+                      $("#board").hide();
+                      $("#new-game").hide();
+                    });
+                    
+                    
+
