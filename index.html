@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>TicTacTony</title>
@@ -13,142 +12,121 @@
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-
 </head>
 
 <body>
 
   <h1>Tic Tac Tony</h1>
 
-  <!--<audio id="sound1" src="yoursound.mp3" preload="auto"></audio>
-  <button onclick="document.getElementById('sound1').play();">Play
-  it</button>-->
+<br>
+<br>
+<br>
 
-  <div class="container" id="players">
+  <div class="container" id="game-board">
     <div class="row">
-        <div class="col-2" id="playerOne">
-          <h2>Player one</h2>
-          <p id="pOneWins">Wins:</p>
-          <p id="pOneLosses">Losses:</p>
-        </div>
-        <div class="col-md-6"></div>
-        <div class="col-2" id="playerTwo">
+      <div class="col-md-3" id="playerOne">
+        <h2>Player one</h2>
+        <p id="pOneWins">Wins:</p>
+        <p id="pOneLosses">Losses:</p>
+      </div>
+      <table class="table col-md-6">
+        <tbody>
+          <tr>
+            <td id="c00">
+              <div>
+                <audio id="sound1" src="/assets/sounds/blaster-firing.wav" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound1').play();" class="btn btn-default btn-lg text-center"
+                  id="1" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+            <td id="c01">
+              <div>
+                <audio id="sound2" src="/assets/sounds/WilhelmScream.wav" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound2').play();" class="btn btn-default btn-lg text-center"
+                  id="2" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+            <td id="c02">
+              <div>
+                <audio id="sound3" src="/assets/sounds/perfect-fart.mp3" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound3').play();" class="btn btn-default btn-lg text-center"
+                  id="3" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td id="c10">
+              <div>
+                <audio id="sound4" src="/assets/sounds/i-like-turtles.mp3" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound4').play();" class="btn btn-default btn-lg text-center"
+                  id="4" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+            <td id="c11">
+              <div>
+                <audio id="sound5" src="/assets/sounds/fatality.swf.mp3" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound5').play();" class="btn btn-default btn-lg text-center"
+                  id="5" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+            <td id="c12">
+              <div>
+                <audio id="sound6" src="/assets/sounds/metalgearsolid.swf.mp3" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound6').play();" class="btn btn-default btn-lg text-center"
+                  id="6" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td id="c20">
+              <div>
+                <audio id="sound7" src="/assets/sounds/combobreaker.mp3" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound7').play();" class="btn btn-default btn-lg text-center"
+                  id="7" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+            <td id="c21">
+              <div>
+                <audio id="sound8" src="/assets/sounds/mr-mackey-umkay.wav" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound8').play();" class="btn btn-default btn-lg text-center"
+                  id="8" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+            <td id="c22">
+              <div>
+                <audio id="sound9" src="/assets/sounds/nap-ddang.wav" preload="auto"></audio>
+                <button type="button" onclick="document.getElementById('sound9').play();" class="btn btn-default btn-lg text-center"
+                  id="9" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="col-md-3">
+        <div id="playerTwo">
           <h2>Player two</h2>
           <p id="pTwoWins">Wins:</p>
           <p id="pTwoLosses">Losses:</p>
         </div>
-    </div>
-  </div>
-
-  <div id="container" class="col-lg-12">
-    <table id="board" class="hidden">
-      <div class="button-group">
-        <tr class="row">
-          <td id="c00">
-            <div class="text-center">
-              <div class="col-4">
-
-                <audio id="sound1" src="../../assets/sounds/blaster-firing.wav" preload="auto"></audio>
-                <button type="button" onclick="document.getElementById('sound1').play();" class="btn btn-default btn-lg text-center" id="1" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-              </div>
-            </div>
-          </td>
-          <td id="c01">
-            <div class="col-4">
-
-              <audio id="sound2" src="../../assets/sounds/WilhelmScream.wav" preload="auto"></audio>
-              <button type="button" onclick="document.getElementById('sound2').play();" class="btn btn-default btn-lg text-center" id="2" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-            </div>
-          </td>
-          <td id="c02">
-            <div class="col-4">
-
-              <audio id="sound3" src="../../assets/sounds/perfect-fart.mp3" preload="auto"></audio>
-              <button type="button" onclick="document.getElementById('sound3').play();" class="btn btn-default btn-lg text-center" id="3" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-            </div>
-          </td>
-        </tr>
       </div>
-      <tr class="row">
-        <td id="c10">
-          <div class="col-4">
+    </div>
 
-            <audio id="sound4" src="../../assets/sounds/i-like-turtles.mp3" preload="auto"></audio>
-            <button type="button" onclick="document.getElementById('sound4').play();" class="btn btn-default btn-lg text-center" id="4" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
+    <div id="final-screen" class="hidden">
+      <div id="winner"></div>
+      <br>
+      <audio id="sound10" src="/assets/sounds/aallrighty.wav" preload="auto"></audio>
+      <button type="button" onclick="document.getElementById('sound10').play();" class="btn btn-default" id="play-again-btn"><a
+          href="#" id="new-game">Play<br>Again</a></button>
+    </div>
 
-          </div>
-        </td>
-        <td id="c11">
-          <div class="col-4">
-
-            <audio id="sound5" src="../../assets/sounds/fatality.swf.mp3" preload="auto"></audio>
-            <button type="button" onclick="document.getElementById('sound5').play();" class="btn btn-default btn-lg text-center" id="5" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-          </div>
-        </td>
-        <td id="c12">
-          <div class="col-4">
-
-            <audio id="sound6" src="../../assets/sounds/metalgearsolid.swf.mp3" preload="auto"></audio>
-            <button type="button" onclick="document.getElementById('sound6').play();" class="btn btn-default btn-lg text-center" id="6" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-          </div>
-        </td>
-      </tr>
-      <tr class="row">
-        <td id="c20">
-          <div class="col-4">
-
-            <audio id="sound7" src="../../assets/sounds/combobreaker.mp3" preload="auto"></audio>
-            <button type="button" onclick="document.getElementById('sound7').play();" class="btn btn-default btn-lg text-center" id="7" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-          </div>
-        </td>
-        <td id="c21">
-          <div class="col-4">
-
-            <audio id="sound8" src="../../assets/sounds/mr-mackey-umkay.wav" preload="auto"></audio>
-            <button type="button" onclick="document.getElementById('sound8').play();" class="btn btn-default btn-lg text-center" id="8" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-          </div>
-        </td>
-        <td id="c22">
-          <div class="col-4">
-
-            <audio id="sound9" src="../../assets/sounds/nap-ddang.wav" preload="auto"></audio>
-            <button type="button" onclick="document.getElementById('sound9').play();" class="btn btn-default btn-lg text-center" id="9" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-
-          </div>
-        </td>
-      </tr>
-  </div>
-  </table>
-  </table>
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div id="final-screen" class="hidden">
-    <div id="winner"></div>
-    <br>
-    <audio id="sound10" src="../../assets/sounds/aallrighty.wav" preload="auto"></audio>
-    <button type="button" onclick="document.getElementById('sound10').play();" class="btn btn-default" id="play-again-btn"><a href="#" id="new-game">Play Again</a></button>
-  </div>
-  <div id="choice">
-      <audio id="sound11" src="../../assets/sounds/leroy.swf.mp3" preload="auto"></audio>
-      <button type="button" onclick="document.getElementById('sound11').play();" class="btn btn-default" id="choice-btn"><a href="#" id="x">X</a></button> or 
-      <audio id="sound12" src="../../assets/sounds/woo.mp3" preload="auto"></audio>
-      <button type="button" onclick="document.getElementById('sound12').play();" class="btn btn-default" id="choice-btn"><a href="#" id="o">O</a></button> ?
-  </div>
-
-  </div>
+    <div id="choice">
+      <audio id="sound11" src="/assets/sounds/leroy.swf.mp3" preload="auto"></audio>
+      <button type="button" onclick="document.getElementById('sound11').play();" class="btn btn-default" id="choice-btn"><a
+          href="#" id="x">X</a></button> or
+      <audio id="sound12" src="/assets/sounds/woo.mp3" preload="auto"></audio>
+      <button type="button" onclick="document.getElementById('sound12').play();" class="btn btn-default" id="choice-btn"><a
+          href="#" id="o">O</a></button>
+    </div>
 
 
 
