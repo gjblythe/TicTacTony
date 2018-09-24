@@ -108,7 +108,7 @@ function whoStarts() {
 
 //change to random on function
 function tonyRandom() {
- var  i = chance.integer({ min: 0, max: 9 });
+  var i = chance.integer({ min: 0, max: 9 });
   var j = chance.integer({ min: 0, i, max: 9 });
   playerOneTony = arrayOfTonys[i];
   playerTwoTony = arrayOfTonys[j];
@@ -117,8 +117,7 @@ function tonyRandom() {
     playerTwoTony = playerTwoTony[k];
   } else {
     return;
-  };
-  
+  }
 
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?q=" +
@@ -381,9 +380,8 @@ function winCheck() {
     $("#pOneWins").text("Wins: " + playerOneWins);
     $("#pTwoLosses").text("Losses: " + playerTwoLoses);
     $("#board").hide();
-
   } else if (
-    p2Win1.reduce(reducer) === -3 ||
+    p2Win1.reduce(reducer) === -4 ||
     p2Win2.reduce(reducer) === -4 ||
     p2Win3.reduce(reducer) === -4 ||
     p2Win4.reduce(reducer) === -4 ||
@@ -406,11 +404,10 @@ function winCheck() {
     gameOver = true;
     $("#board").hide();
     tie++;
-    
+
     console.log("game over, draw tie" + tie);
   }
 }
-
 
 $(document).ready(function() {
   console.log("ready!");
