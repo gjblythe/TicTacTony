@@ -138,6 +138,9 @@ h1 {
   max-width: 100%;
  }
 
+#xO {
+  position: relative;
+}
 
 /*#group1 {
   margin-left: px;
