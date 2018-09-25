@@ -130,6 +130,13 @@ h1 {
   font-family: 'Rubik Mono One', sans-serif;
   margin-top: 38px;
 }
+#pOneImage {
+  max-width: 100%;
+ }
+ 
+ #pTwoImage {
+  max-width: 100%;
+ }
 
 
 /*#group1 {

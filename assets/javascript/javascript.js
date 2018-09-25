@@ -59,7 +59,7 @@ function random() {
 }
 
 function userSelect() {
-  $("#x").click(function() {
+  $("#x").click(function () {
     playerOne = playerOneTony;
     playerTwo = playerTwoTony;
     $("#choice").hide();
@@ -68,7 +68,7 @@ function userSelect() {
     console.log("p1" + playerOne, "p2" + playerTwo);
   });
 
-  $("#o").click(function() {
+  $("#o").click(function () {
     playerOne = playerTwoTony;
     playerTwo = playerOneTony;
     $("#choice").hide();
@@ -84,7 +84,7 @@ function playerScore() {
 }
 function restart() {
   $("#play-again-btn").show();
-  $("#play-again-btn").click(function() {
+  $("#play-again-btn").click(function () {
     $("#play-again-btn").hide();
     $("#choice").show();
   });
@@ -112,60 +112,59 @@ function tonyRandom() {
   var j = chance.integer({ min: 0, i, max: 9 });
   playerOneTony = arrayOfTonys[i];
   playerTwoTony = arrayOfTonys[j];
-  if (playerOneTony === playerTwoTony) {
-    var k = chance.integer({ min: 0, max: 9 });
-    playerTwoTony = playerTwoTony[k];
-  } else {
-    return;
-  }
+  // if (playerOneTony === playerTwoTony) {
+  //   var k = chance.integer({ min: 0, max: 9 });
+  //   playerTwoTony = playerTwoTony[k];
+  // } else {
+  //   return;
+  // }
 
-  var queryURL =
+  var queryURLOne =
     "https://api.giphy.com/v1/gifs/search?q=" +
     playerOneTony +
-    "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
-  var queryURL1 =
+    "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=1&rating=R";
+  var queryURLTwo =
     "https://api.giphy.com/v1/gifs/search?q=" +
     playerTwoTony +
-    "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=10&rating=R";
+    "&api_key=NT48m4Vbdp0xJS0bh8cJv7zdIA0X4y8X&limit=1&rating=R";
 
   $.ajax({
-    url: queryURL,
+    url: queryURLOne,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("queryURL " + response);
-    // var results = response.data;
-    var images = $(".images");
     for (var i = 0; i < response.data.length; i++) {
-      var img = $("<img>");
       console.log(response.data[i]);
-      // img.attr('src', response.data[i].images.preview_gif.url);
       var imageView = response.data[i].images.fixed_height.url;
       console.log("image view " + imageView);
-      var still = response.data[i].images.fixed_height_still.url;
-      console.log("STILL " + still);
-      images.append(img);
+      var stillOne = response.data[i].images.fixed_height_small_still.url;
+      console.log("STILL One " + stillOne);
+      var imgOne = $("<img>");
+      imgOne.attr("src", stillOne);
+      $('#pOneImage').append(imgOne);
+
     }
+
   });
 
   $.ajax({
-    url: queryURL1,
+    url: queryURLTwo,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("queryURL " + response);
-    // var results = response.data;
-    var images = $(".images");
     for (var i = 0; i < response.data.length; i++) {
-      var img = $("<img>");
       console.log(response.data[i]);
-      // img.attr('src', response.data[i].images.preview_gif.url);
       var imageView = response.data[i].images.fixed_height.url;
       console.log("image view " + imageView);
-      var still = response.data[i].images.fixed_height_still.url;
-      console.log("STILL " + still);
-      images.append(img);
+      var stillTwo = response.data[i].images.fixed_height_small_still.url;
+      console.log("STILL Two " + stillTwo);
+      var imgTwo = $("<img>");
+      imgTwo.attr("src", stillTwo);
+      $('#pTwoImage').append(imgTwo);
     }
   });
 }
+// tonyRandom();
 
 var p1Win1 = [1];
 var p1Win2 = [1];
@@ -186,7 +185,7 @@ var p2Win7 = [-1];
 var p2Win8 = [-1];
 
 //game toggle
-$("#1").one("click", function() {
+$("#1").one("click", function () {
   console.log(turn);
   if (turn === 1) {
     $("#1").append(playerOne);
@@ -207,7 +206,7 @@ $("#1").one("click", function() {
   }
 });
 
-$("#2").one("click", function() {
+$("#2").one("click", function () {
   if (turn === 1) {
     $("#2").append(playerOne);
     p1Win1.push(1);
@@ -225,7 +224,7 @@ $("#2").one("click", function() {
   }
 });
 
-$("#3").one("click", function() {
+$("#3").one("click", function () {
   if (turn === 1) {
     $("#3").append(playerOne);
     p1Win1.push(1);
@@ -245,7 +244,7 @@ $("#3").one("click", function() {
   }
 });
 
-$("#4").one("click", function() {
+$("#4").one("click", function () {
   if (turn === 1) {
     $("#4").append(playerOne);
     p1Win2.push(1);
@@ -263,7 +262,7 @@ $("#4").one("click", function() {
   }
 });
 
-$("#5").one("click", function() {
+$("#5").one("click", function () {
   if (turn === 1) {
     $("#5").append(playerOne);
     p1Win2.push(1);
@@ -285,7 +284,7 @@ $("#5").one("click", function() {
   }
 });
 
-$("#6").one("click", function() {
+$("#6").one("click", function () {
   if (turn === 1) {
     $("#6").append(playerOne);
     p1Win2.push(1);
@@ -303,7 +302,7 @@ $("#6").one("click", function() {
   }
 });
 
-$("#7").one("click", function() {
+$("#7").one("click", function () {
   if (turn === 1) {
     $("#7").append(playerOne);
     p1Win3.push(1);
@@ -323,7 +322,7 @@ $("#7").one("click", function() {
   }
 });
 
-$("#8").one("click", function() {
+$("#8").one("click", function () {
   if (turn === 1) {
     $("#8").append(playerOne);
     p1Win3.push(1);
@@ -341,7 +340,7 @@ $("#8").one("click", function() {
   }
 });
 
-$("#9").one("click", function() {
+$("#9").one("click", function () {
   if (turn === 1) {
     $("#9").append(playerOne);
     p1Win3.push(1);
@@ -409,7 +408,7 @@ function winCheck() {
   }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   console.log("ready!");
   userSelect();
   tonyRandom();
