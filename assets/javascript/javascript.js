@@ -180,7 +180,7 @@ function tonyRandom() {
     console.log("queryURL " + response);
     for (var i = 0; i < response.data.length; i++) {
       console.log(response.data[i]);
-      var imageView = response.data[i].images.fixed_height.url;
+      var imageView = response.data[i].images.fixed_height_small.url;
       console.log("image view " + imageView);
       var stillOne = response.data[i].images.fixed_height_small_still.url;
       console.log("STILL One " + stillOne);
@@ -199,7 +199,7 @@ function tonyRandom() {
     console.log("queryURL " + response);
     for (var i = 0; i < response.data.length; i++) {
       console.log(response.data[i]);
-      var imageView = response.data[i].images.fixed_height.url;
+      var imageView = response.data[i].images.fixed_height_small.url;
       console.log("image view " + imageView);
 
       var stillTwo = response.data[i].images.fixed_height_small_still.url;
