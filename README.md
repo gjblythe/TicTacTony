@@ -1,4 +1,15 @@
-# Team-3-Project-1
+# TicTacTony
+
+Chuck Norris API
+https://api.chucknorris.io/
+
+Giphy API
+https://developers.giphy.com
+
+chancejs
+https://chancejs.com/
+
+
 
 Please create a new branch when adding new features.
 
