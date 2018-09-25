@@ -8,12 +8,12 @@ font-family: 'Vollkorn SC', serif;
 font-family: 'Ewert', cursive;
 font-family: 'Diplomata SC', cursive; */
 
-body { 
+body {
   background-image: url(../../assets/images/curtains.jpeg);
   background-position: center center;
-  background-repeat:  no-repeat;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size:  cover;
+  background-size: cover;
   background-color: #999;
 }
 
@@ -21,14 +21,13 @@ h1 {
   margin-top: 2px;
   color: gold;
   font-size: 100px;
-  text-align: center; 
-  font-family: 'Monoton', cursive;
+  text-align: center;
+  font-family: "Monoton", cursive;
 }
 
 #container {
   margin-top: 50px;
 }
-
 
 #game-board {
   background-image: url(../../assets/images/tonys.jpg);
@@ -64,7 +63,7 @@ h1 {
   height: auto;
   border: none;
 }
-  
+
 #choice {
   color: white;
   margin: auto;
@@ -81,7 +80,7 @@ h1 {
 #play-again-btn {
   width: auto;
   height: auto;
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
   font-size: 5px;
   font-weight: bold;
   color: black;
@@ -106,7 +105,7 @@ h1 {
   width: auto;
   height: auto;
   border: none;
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: black;
@@ -117,26 +116,26 @@ h1 {
   width: auto;
   height: auto;
   border: none;
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: black;
   text-align: center;
 }
 
-
-#playerOne, #playerTwo {
+#playerOne,
+#playerTwo {
   color: gold;
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
   margin-top: 38px;
 }
 #pOneImage {
   max-width: 100%;
- }
- 
- #pTwoImage {
+}
+
+#pTwoImage {
   max-width: 100%;
- }
+}
 
 #xO {
   position: relative;
