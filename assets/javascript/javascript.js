@@ -85,7 +85,7 @@ function userSelect() {
     playerTwo = "O";
 
     $("#choice").hide();
-    $("#board").show();
+    $("#board").css("visibility", "visible");
     $("#p1").text(": " + playerOne);
     $("#p2").text(": " + playerTwo);
     playerScore();
@@ -96,7 +96,7 @@ function userSelect() {
     playerOne = "O";
     playerTwo = "X";
     $("#choice").hide();
-    $("#board").show();
+    $("#board").css("visibility", "visible");
     $("#p1").text(": " + playerOne);
     $("#p2").text(": " + playerTwo);
     playerScore();
@@ -106,6 +106,7 @@ function userSelect() {
 
 function boardClear() {
   $("#image").empty();
+  $("#board").css("visibility", "hidden");
   $("#1").empty();
   $("#2").empty();
   $("#3").empty();
@@ -145,7 +146,7 @@ function whoStarts() {
   }
 }
 
-//API call
+//Michael S awesome API call
 function tonyRandom() {
   var i = chance.integer({ min: 0, max: 9 });
   var j = chance.integer({ min: 0, i, max: 9 });
@@ -400,7 +401,6 @@ function winCheck() {
     $("#p1").text(": " + playerOne);
     $("#p2").text(": " + playerTwo);
     $("#pTwoLosses").text("Losses: " + playerTwoLoses);
-    $("#board").hide();
     restart();
   } else if (
     p2Win1.reduce(reducer) === -4 ||
@@ -419,7 +419,6 @@ function winCheck() {
     $("#p2").text(": " + playerTwo);
     $("#pTwoWins").text("Wins: " + playerTwoWins);
     $("#pOneLosses").text("Losses: " + playerOneLoses);
-    $("#board").hide();
     restart();
   } else if (progress !== 0) {
     progress--;
@@ -427,7 +426,6 @@ function winCheck() {
     return;
   } else {
     gameOver = true;
-    $("#board").hide();
     tie++;
     restart();
 
@@ -442,6 +440,6 @@ $(document).ready(function() {
   console.log("start" + turn);
   $("#playerOne").hide();
   $("#playerTwo").hide();
-  $("#board").hide();
+  $("#board").css("visibility", "hidden");
   $("#play-again-btn").hide();
 });
