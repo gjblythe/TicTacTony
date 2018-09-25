@@ -121,6 +121,7 @@ function boardClear() {
   $("#7").empty();
   $("#8").empty();
   $("#9").empty();
+  $("#chuck").empty();
 }
 function playerScore() {
   $("#playerOne").show();
@@ -133,6 +134,7 @@ function restart() {
     $("#choice").show();
     boardClear();
     gameOver = false;
+    $("#chuck").css("visibility", "hidden");
   });
 }
 //computer choice
@@ -207,6 +209,7 @@ function tonyRandom() {
   });
 }
 function chuckNorris(){
+  $("#chuck").css("visibility", "visible");
   var chuckURL = "https://api.chucknorris.io/jokes/random";
 
 $.ajax({
@@ -226,7 +229,8 @@ $.ajax({
   ];
   var i = chance.integer({ min: 0, max: 6 });
   var youSuck = youSuckAns[i];
-  var chuckWins = "Chuck Wins: " + tie;
+  console.log(youSuck)
+  var chuckWins = " Chuck Wins Again: " + tie;
   chuckWin.text(youSuck + quote + chuckWins);
   
   $("#chuck").append(chuckWin);
@@ -478,6 +482,7 @@ $(document).ready(function() {
   userSelect();
   tonyRandom();
   console.log("start" + turn);
+  $("#chuck").css("visibility", "hidden");
   $("#playerOne").hide();
   $("#playerTwo").hide();
   $("#board").css("visibility", "hidden");
