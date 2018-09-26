@@ -68,6 +68,7 @@ h1 {
 #choice {
   color: white;
   margin: auto;
+  text-align: center;
 }
 
 .btn {
@@ -129,13 +130,13 @@ h1 {
   color: gold;
   font-family: "Rubik Mono One", sans-serif;
   margin-top: 38px;
-}
-#pOneImage {
-  max-width: 100%;
+
 }
 
-#pTwoImage {
-  max-width: 100%;
+img {
+  width: 150px;
+  height: 150px;
+  border: 2px solid gold;
 }
 
 #xO {
@@ -150,32 +151,72 @@ h1 {
   font-size: 15px;
   font-family: 'Bowlby One SC', cursive;
 }
-/*#group1 {
-  margin-left: px;
-}*/
 
-/*@media screen and (max-width: 320px) {
-  h1 {
-    font-size: 50px; 
-  }
-
-  #container {
-    position: relative;
-  }
-  
-  #board {
-    background-image: url(/Team-3-Project-1/assets/images/gameboard.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    left: 3px;
-    top: 1px;
-    border: 5px dotted white;
-  }
+#mobile-view {
+  visibility: hidden;
 }
 
-@media screen and (max-width: 375px) {
 
-}*/
+/* Mobile Media Query */
+
+@media (min-width: 320px) and (max-width: 475px) {
+  
+  .br br {
+    content: ' ';
+  }
+
+
+  
+  h1 {
+    font-size: 45px; 
+  }
+
+  .btn {
+    margin-top: 10px;
+    width: 75px;
+    height: 75px;
+    background-color: palegoldenrod;
+    border: 7px solid white;    
+  }
+  
+  #playerOne,
+  #playerTwo {
+    color: gold;
+    font-family: "Rubik Mono One", sans-serif;
+    margin-top: 15px;
+    font-size: 10px;
+  }
+  
+  #playerOne {
+    text-align: justify;
+  }
+
+  #playerTwo {
+  visibility: hidden;
+  content: ' ';
+  }
+
+  #constant-view {
+    display: inline-block;
+    float: left;
+    
+  }
+
+  #mobile-view {
+    display: inline-block;
+    float: right;
+    visibility: visible;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid gold;
+  }
+
+  #image-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 2px solid gold;
+  }
+}

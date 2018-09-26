@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Ewert|Monofett|Monoton|Oleo+Script+Swash+Caps|Petit+Formal+Script|Rubik+Mono+One|Vollkorn+SC"
     rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
@@ -19,20 +19,34 @@
 
   <h1>Tic Tac Tony</h1>
   <div id="chuck"></div>
-  <br>
-  <br>
-  <br>
-
+  <div class="br">
+    <br>
+    <br>
+    <br>
+  </div>
   <div class="container" id="game-board">
     <div class="row">
       <div class="col-md-3" id="playerOne">
+        <div id="constant-view">
+          <h2>Player one<span id="p1"></span></h2>
 
-        <h2>Player one<span id="p1"></span></h2>
+          <p id="pOneWins">Wins:</p>
+          <p id="pOneLosses">Losses:</p>
+          <div id="pOneImage"></div>
+        </div>
+        <!-- Visible on Mobile & Hidden Full Screen -->
+        <div id="mobile-view">
+          <h2>Player two<span id="p2-placeholder"></span></h2>
+          </h2>
 
-        <p id="pOneWins">Wins:</p>
-        <p id="pOneLosses">Losses:</p>
-        <div id="pOneImage"></div>
+          <p id="pTwoWins">Wins:</p>
+          <p id="pTwoLosses">Losses:</p>
+          <div id="image-placeholder"></div>
+          <!--<div id="pTwoImage"></div>-->
+        </div>
       </div>
+    
+
       <table id="board" class="table col-md-6">
         <tbody>
           <tr>
@@ -106,6 +120,7 @@
           </tr>
         </tbody>
       </table>
+      <!-- Visible Full Screen & Hidden on Mobile -->
       <div class="col-md-3">
         <div id="playerTwo">
 
