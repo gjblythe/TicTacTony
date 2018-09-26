@@ -30,7 +30,7 @@ var arrayOfTonys = [
   "Fat Tony"
 ];
 var tie = 0;
-var progress = 9;
+var progress = 8;
 var playerOne = "";
 var playerTwo = "";
 var turn = chance.integer({ min: 1, max: 2 });
@@ -80,14 +80,17 @@ function random() {
 }
 
 function userSelect() {
+  playerOne = "";
+  playerTwo = "";
   $("#x").click(function() {
     playerOne = "X";
     playerTwo = "O";
-
+    progress = 8
     $("#choice").hide();
     $("#board").css("visibility", "visible");
     $("#p1").text(": " + playerOne);
     $("#p2").text(": " + playerTwo);
+    console.log(tie);
     playerScore();
     game();
   });
@@ -95,10 +98,12 @@ function userSelect() {
   $("#o").click(function() {
     playerOne = "O";
     playerTwo = "X";
+    progress = 9
     $("#choice").hide();
     $("#board").css("visibility", "visible");
     $("#p1").text(": " + playerOne);
     $("#p2").text(": " + playerTwo);
+    console.log(tie);
     playerScore();
     game();
   });
@@ -116,6 +121,7 @@ function boardClear() {
   $("#7").empty();
   $("#8").empty();
   $("#9").empty();
+  $("#chuck").empty();
 }
 function playerScore() {
   $("#playerOne").show();
@@ -127,6 +133,8 @@ function restart() {
     $("#play-again-btn").hide();
     $("#choice").show();
     boardClear();
+    gameOver = false;
+    $("#chuck").css("visibility", "hidden");
   });
 }
 //computer choice
@@ -200,6 +208,34 @@ function tonyRandom() {
     }
   });
 }
+function chuckNorris(){
+  $("#chuck").css("visibility", "visible");
+  var chuckURL = "https://api.chucknorris.io/jokes/random";
+
+$.ajax({
+  url: chuckURL,
+  method: "GET"
+}).then(function(response){
+  var quote = response.value;
+  console.log(quote);
+  var chuckWin = $('<p>');
+  var youSuckAns = [
+    "You both Suck. You have been beaten by Chuck. Why you ask... ",
+    "Really? You thought you could win? Don't you know this game can only be beaten by Mr. Norris.  ",
+    "Damn it, this game is broken... Did you know,  ",
+    "Serriously this game is broken! Damn you Chuck Norris!  ",
+    quote + "  The more you know. *Special Effect*(Star flies by) Mind blown. Yes I know this is text. Here is another Chuck fact. ",
+    "How does this keep happening?!?  "
+  ];
+  var i = chance.integer({ min: 0, max: 6 });
+  var youSuck = youSuckAns[i];
+  console.log(youSuck)
+  var chuckWins = " Chuck Wins Again: " + tie;
+  chuckWin.text(youSuck + quote + chuckWins);
+  
+  $("#chuck").append(chuckWin);
+});
+};
 
 function game() {
   p1Win1 = [1];
@@ -220,23 +256,22 @@ function game() {
   p2Win7 = [-1];
   p2Win8 = [-1];
   $("#1").one("click", function() {
-    console.log(turn);
     if (turn === 1) {
       $("#1").append(playerOne);
       p1Win1.push(1);
       p1Win4.push(1);
       p1Win7.push(1);
       winCheck();
-      console.log("p1winers", p1Win1, p1Win4, p1Win7);
       turn = 2;
+      progress --;
     } else {
       $("#1").append(playerTwo);
       p2Win1.push(-1);
       p2Win4.push(-1);
       p2Win7.push(-1);
       winCheck();
-      console.log("2winners", p2Win1, p2Win4, p2Win7);
       turn = 1;
+      progress --;
     }
   });
 
@@ -245,16 +280,16 @@ function game() {
       $("#2").append(playerOne);
       p1Win1.push(1);
       p1Win5.push(1);
-      console.log(p1Win1, p1Win5);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#2").append(playerTwo);
       p2Win1.push(-1);
       p2Win5.push(-1);
-      console.log(p2Win1, p2Win5);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -266,6 +301,7 @@ function game() {
       p1Win8.push(1);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#3").append(playerTwo);
       p2Win1.push(-1);
@@ -273,6 +309,7 @@ function game() {
       p2Win8.push(-1);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -283,12 +320,14 @@ function game() {
       p1Win4.push(1);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#4").append(playerTwo);
       p2Win2.push(-1);
       p2Win4.push(-1);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -301,6 +340,7 @@ function game() {
       p1Win8.push(1);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#5").append(playerTwo);
       p2Win2.push(-1);
@@ -309,6 +349,7 @@ function game() {
       p2Win8.push(-1);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -319,12 +360,14 @@ function game() {
       p1Win6.push(1);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#6").append(playerTwo);
       p2Win2.push(-1);
       p2Win6.push(-1);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -336,6 +379,7 @@ function game() {
       p1Win8.push(1);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#7").append(playerTwo);
       p2Win3.push(-1);
@@ -343,6 +387,7 @@ function game() {
       p2Win8.push(-1);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -353,12 +398,14 @@ function game() {
       p1Win5.push(1);
       winCheck();
       turn = 2;
+      progress--;
     } else {
       $("#8").append(playerTwo);
       p2Win3.push(-1);
       p2Win5.push(-1);
       winCheck();
       turn = 1;
+      progress--;
     }
   });
 
@@ -370,7 +417,7 @@ function game() {
       p1Win7.push(1);
       winCheck();
       turn = 2;
-      console.log("p1", pOnePick);
+      progress--;
     } else {
       $("#9").append(playerTwo);
       p2Win3.push(-1);
@@ -378,7 +425,7 @@ function game() {
       p2Win7.push(-1);
       winCheck();
       turn = 1;
-      console.log("p2", pTwoPick);
+      progress--;
     }
   });
 }
@@ -420,16 +467,13 @@ function winCheck() {
     $("#pTwoWins").text("Wins: " + playerTwoWins);
     $("#pOneLosses").text("Losses: " + playerOneLoses);
     restart();
-  } else if (progress !== 0) {
-    progress--;
+  } else if (progress !==0) {
     gameOver = false;
-    return;
   } else {
     gameOver = true;
     tie++;
+    chuckNorris();
     restart();
-
-    console.log(p1Win1, p2Win1);
   }
 }
 
@@ -438,6 +482,7 @@ $(document).ready(function() {
   userSelect();
   tonyRandom();
   console.log("start" + turn);
+  $("#chuck").css("visibility", "hidden");
   $("#playerOne").hide();
   $("#playerTwo").hide();
   $("#board").css("visibility", "hidden");
