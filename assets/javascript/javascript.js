@@ -177,17 +177,22 @@ function tonyRandom() {
   }).then(function(response) {
     console.log("queryURL " + response);
     for (var i = 0; i < response.data.length; i++) {
-      console.log(response.data[i]);
-      var imageView = response.data[i].images.fixed_height.url;
-      console.log("image view " + imageView);
+        console.log(response.data[i]);
+      var imageViewOne = response.data[i].images.fixed_height_small.url;
+        console.log("imageViewOne " + imageViewOne);
       var stillOne = response.data[i].images.fixed_height_small_still.url;
-      console.log("STILL One " + stillOne);
-      var imgOne = $("<img>");
+        console.log("stillOne " + stillOne);
+      // var imgOne = $("<img>");
+      var imgOne = $('<img>').attr("src", stillOne).attr('data-animate', imageViewOne).attr('data-still', stillOne);
       imgOne.attr("id='image'");
       imgOne.attr("src", stillOne);
+      imgOne.attr('data-state', 'stillOne');
       $("#pOneImage").append(imgOne);
+      imgOne.on('click', playGif);
     }
   });
+
+  
 
   $.ajax({
     url: queryURLTwo,
@@ -195,18 +200,35 @@ function tonyRandom() {
   }).then(function(response) {
     console.log("queryURL " + response);
     for (var i = 0; i < response.data.length; i++) {
-      console.log(response.data[i]);
-      var imageView = response.data[i].images.fixed_height.url;
-      console.log("image view " + imageView);
-
+        console.log(response.data[i]);
+      var imageViewTwo = response.data[i].images.fixed_height_small.url;
+        console.log("imageViewTwo " + imageViewTwo);
       var stillTwo = response.data[i].images.fixed_height_small_still.url;
-      console.log("STILL Two " + stillTwo);
-      var imgTwo = $("<img>");
-      imgTwo.attr("src", stillTwo);
+        console.log("stillTwo " + stillTwo);
+      // var imgTwo = $("<img>");
+      var imgTwo = $('<img>').attr("src", stillTwo).attr('data-animate', imageViewTwo).attr('data-still', stillTwo);
       imgTwo.attr("id='image'");
+      imgTwo.attr("src", stillTwo);
+      imgTwo.attr('data-state', 'stillTwo');
       $("#pTwoImage").append(imgTwo);
+      imgTwo.on('click', playGif);
     }
   });
+  //Function for still and animate .gifs retrieved.
+  function playGif() {
+    var state = $(this).attr('data-state');
+    console.log(state);
+
+    if (state == 'still') {
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
+    }
+    else {
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+} 
+
 }
 function chuckNorris(){
   $("#chuck").css("visibility", "visible");
