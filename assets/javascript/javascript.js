@@ -208,6 +208,7 @@ function tonyRandom() {
     }
   });
 }
+
 function chuckNorris(){
   $("#chuck").css("visibility", "visible");
   var chuckURL = "https://api.chucknorris.io/jokes/random";
