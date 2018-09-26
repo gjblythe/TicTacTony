@@ -224,10 +224,10 @@ $.ajax({
     "Really? You thought you could win? Don't you know this game can only be beaten by Mr. Norris.  ",
     "Damn it, this game is broken... Did you know,  ",
     "Serriously this game is broken! Damn you Chuck Norris!  ",
-    quote + "  The more you know. *Special Effect*(Star flies by) Mind blown. Yes I know this is text. Here is another Chuck fact. ",
-    "How does this keep happening?!?  "
+    "How does this keep happening?!?  ",
+    "Not Again! "
   ];
-  var i = chance.integer({ min: 0, max: 6 });
+  var i = chance.integer({ min: 0, max: 5 });
   var youSuck = youSuckAns[i];
   console.log(youSuck)
   var chuckWins = " Chuck Wins Again: " + tie;
